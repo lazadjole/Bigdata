@@ -28,7 +28,7 @@ object mainNetwork {
   def main(args: Array[String]): Unit = {
     Logger.getLogger("org").setLevel(Level.ERROR)
 
-    val spark = SparkSession.builder().appName("Streaming").master("local").getOrCreate()
+    val spark = SparkSession.builder().appName("Streaming").getOrCreate()
     spark.conf.set("spark.sql.shuffle.partitions","10")
     val data = spark.read.
       option("inferSchema", true).
